@@ -1,0 +1,172 @@
+Criação deuma base dedados sem grandes restições nesta o utilizador pode obter a 
+possibilidade de inserir os mesmoutilizadores varias veses;
+
+create database cadastro;
+
+create table pessoas (
+nome varchar (30),
+idade tinyint (3),
+sexo char (1),
+peso float,
+altura float,
+nacionalidade varchar(20)
+);
+
+describe pessoas;
+
+Melhorar a performace da mesma database incluindo formato tf8 com assentuações do português ou 
+linguas derivadas do latin.
+
+Comandos de Definição de Dados DDL(Create dadabase, Create table)
+
+Comando de Manipulaçãao de Dados DML (insert into,)
+
+
+create database A_cadastro
+default character set utf8
+default collate utf8_general_ci;
+create table pessoas (
+ID int not null auto_increment,
+nome varchar (30) NOT NULL,
+nascimento date,
+sexo enum ('M','F'),
+peso decimal(5,2),
+altura decimal (3,2),
+nacionalidade varchar (20) default 'Brasil',
+primary key (ID)
+) default charset = utf8;
+
+O comomando "insert into" permite a inserção de conteudo na tabela. 
+
+drop database [nome da base de dados que queremos apagar]
+
+insert into pessoas
+
+(nome, nascimento, sexo, peso, altura, nacionalidade)
+values 
+use a_cadastro
+insert into pessoas
+(nome, nascimento, sexo, peso, altura, nacionalidade)
+values 
+('Maria','1999-12-30','F','55.2','1.55','Portugal'),
+('Creuza','1920-12-20','F','50.2','1.65',Default),
+('Adalgiza','1930-11-02','F','63.2','1.75','Irlanda'),
+('Claudio','1987-11-22','M','99.0','2.15',Default),
+('Janaina','1987-11-22','F','75.4','1.66','EUA'),
+('Pedro','1999-12-03','M','87','2.0', Default);
+
+
+%Ateração de tabela 
+
+Alter tables Nome da tabela
+se adicional uso 
+ADD  column e o nema da coluna 
+se remover uso o 
+DROP Column e o nome da columa,
+
+mudar a posição da coluna %
+----------------------------------------------------------------------------------------
+/* O comando use serve para dar acesso a uma Base de de dados existente*/
+use a_cadastro
+
+/*  comnando para inserir «os campos de uma tabela */
+insert into pessoas
+(nome, nascimento, sexo, peso, altura, nacionalidade)
+
+/*os valores da tabela podem ser introduzidos de uma unica vez*/
+values 
+('Maria','1999-12-30','F','55.2','1.55','Portugal'),
+('Creuza','1920-12-20','F','50.2','1.65',Default),
+('Adalgiza','1930-11-02','F','63.2','1.75','Irlanda'),
+('Claudio','1987-11-22','M','99.0','2.15',Default),
+('Janaina','1987-11-22','F','75.4','1.66','EUA'),
+('Pedro','1999-12-03','M','87','2.0', Default);
+/*comando para eliminar coluna*/
+alter table pessoas
+drop column profisao;
+
+/*comando para adicionar coluna*/
+alter table pessoas
+add column profisao varchar (10) after nome;
+
+/*comando para adicionar uam  coluna numa tabela existente a coluna como sendo a primeira a aparecer*/
+alter table pessoas
+add codigo varchar (10) first;
+
+/* Mundar tipos e constrains de uma coluna */
+alter table pessoas
+modify  profisao varchar (20) not null default '';
+
+alter table pessoas
+modify  profisao varchar (20) not null;
+
+/*mudar o nome de uma ool«una tipos e constrains, no caso a coluna profissao para prof */
+alter table pessoas
+change column profissao prof varchar (20);
+
+/*comando usado para renomea uma tabela é uso o alter table remane  to*/
+alter table pessoas
+rename to gafanhoto; 
+
+/* o describe descreve a tabela e pode ser abreviado com desc*/
+describe pessoas;
+
+/*seleciona tudo em uma tabela*/
+select* from pessoas;
+/* atenção no futuro retirar os pontos e virgulas se quiser correr o scrip na totalida uma vez que ele
+foi feito aos poucos por isso existe muitos ;;;*/
+/* o creat table if not existe é usado para não apagar se já existeuma tabela com o mesmo nome, caso contrario se eu crio
+umatabela com o mesmo nome sem usar if not exite ela substitui aexistente*/
+create table if not exists cursos ( 
+nome varchar(30) not null,
+descricao text, 
+carga int Unsigned,
+totalaulas int,
+ano year default '2022'
+)default charset=utf8;
+
+alter table cursos 
+add column id_codigo int first;
+
+
+alter table cursos 
+add primary key (id_codigo);
+
+/* o drop pode ser parametro do alter table para alterar colunas ou eliminas 
+ou pode ser usado como comando para apagar a tabela como um todo por exemplo drop table curso; apaga a tabela 
+curso*/
+
+create table if not exists teste(
+
+id int,
+idade int,
+nome varchar(40)
+);
+
+
+insert into teste
+(id, idade,nome)
+
+values
+('Ageu Paim','2','5'),
+('Carmen Paim','2','5'),
+('Asiel Paim','2','5'),
+('Abiel Paim','2','5'),
+('Amiel Paim','2','5'),
+('Leonor Cardoso','2','5');
+
+
+select *from teste;
+
+/*eliminamos a tabela teste que haviammos criado*/
+drop table teste;
+
+/*eliminamos a base de dados aulabbd que haviammos criado*/
+drop database aulabbd;
+
+
+
+
+
+select* from pessoas;
+
