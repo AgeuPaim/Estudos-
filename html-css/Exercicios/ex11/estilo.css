@@ -1,0 +1,12 @@
+*{
+    box-sizing: border-box;
+}
+.box1 {
+    height: 200px;/*Dame a altura */
+    width: 50%;/*Dame a largura*/
+    background-color: #dddddd;
+    border: solid 10px blue;
+    margin-left: 75px;/*Dame a margem a esquerda */
+    padding: 15px 20px 15px 20px;
+    /*Dame o espacamento interior em relação a interior no caso ele considera top, right, boton, left  se os valore forem iguais para cada par nºap preciso repeitir os quatro basta colocar 1 para cada ex 15px e 20*/    
+}
